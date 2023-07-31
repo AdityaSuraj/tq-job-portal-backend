@@ -2,7 +2,7 @@ const JobModel = require("../models/job");
 
 class FrontendController {
     jobs = async (req, res) => {
-        let jobs = await JobModel.find();
+        let jobs = await JobModel.find().select(['name','companyName','salaryRangeStart','salaryRangeEnd','banner']);
 
         res.status(200).send({
             "message": "success",
@@ -19,6 +19,7 @@ class FrontendController {
             }
         )
     }
+
 
 }
 

@@ -13,6 +13,9 @@ const JobSchema = new Schema(
         description: {
             type: String
         },
+        banner: {
+            type: String
+        },
         salaryRangeStart: {
             type: Number
         },

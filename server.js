@@ -6,11 +6,11 @@ const Router = require('./routes');
 const dotenv = require('dotenv');
 
 const app = express();
+app.use(cors());
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/jobportal', { useNewUrlParser: true, useUnifiedTopology: true })
 
-app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 

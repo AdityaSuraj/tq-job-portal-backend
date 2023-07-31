@@ -1,13 +1,14 @@
 const jwt = require('jsonwebtoken');
 const UserModel = require('../models/user');
+const md5 = require('md5');
 
 
 class AuthController {
     login = async (req, res) => {
 
-        const checkUser = await UserModel.find({ email: req.body.email, password: req.body.password });
+        const checkUser = await UserModel.find({ email: req.body.email, password: md5(req.body.password) });
 
-        if (checkUserModel.length == 1) {
+        if (checkUser.length == 1) {
 
             const token = jwt.sign(
                 {
@@ -53,7 +54,16 @@ class AuthController {
             );
         }
 
-        let user = await UserModel.create(req.body);
+
+        console.log(req.body);
+
+    
+        let user = await UserModel.create({
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            password: md5(req.body.password)
+        });
 
         res.status(200).send(
             {

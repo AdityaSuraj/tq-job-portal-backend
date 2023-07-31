@@ -10,7 +10,7 @@ const AuthController = new authController();
 FrontendRouter.post('/login', AuthController.login);
 FrontendRouter.post('/register', AuthController.createAccount);
 
-FrontendRouter.get('/jobs', authenticate, FrontendController.jobs);
+FrontendRouter.get('/jobs',  FrontendController.jobs);
 FrontendRouter.post('/new-job', FrontendController.newJob);
 
 module.exports = FrontendRouter;
