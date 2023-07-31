@@ -1,8 +1,9 @@
+const CityModel = require("../models/cities");
 const JobModel = require("../models/job");
 
 class FrontendController {
     jobs = async (req, res) => {
-        let jobs = await JobModel.find().select(['name','companyName','salaryRangeStart','salaryRangeEnd','banner']);
+        let jobs = await JobModel.find().select(['name', 'companyName', 'salaryRangeStart', 'salaryRangeEnd', 'banner']);
 
         res.status(200).send({
             "message": "success",
@@ -16,6 +17,20 @@ class FrontendController {
             {
                 message: "success",
                 data: job
+            }
+        )
+    }
+
+    homeScreen = async (req, res) => {
+        let cities = await CityModel.find().select(['name']);
+
+        // let jobRoles = await JobROle.find().select(['name']);
+        res.status(200).send(
+            {
+                message: "success",
+                data: {
+                    cities: cities
+                }
             }
         )
     }
