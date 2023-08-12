@@ -25,6 +25,9 @@ const JobSchema = new Schema(
         workExperience: {
             type: Number
         },
+        city: {
+            type: String
+        },
         location: {
             type: String
         },

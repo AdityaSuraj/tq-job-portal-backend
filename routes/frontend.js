@@ -11,7 +11,7 @@ FrontendRouter.post('/login', AuthController.login);
 FrontendRouter.post('/register', AuthController.createAccount);
 
 FrontendRouter.get('/home-screen', FrontendController.homeScreen);
-FrontendRouter.get('/jobs', FrontendController.jobs);
+FrontendRouter.post('/job-list', FrontendController.jobs);
 FrontendRouter.post('/new-job', FrontendController.newJob);
 
 module.exports = FrontendRouter;
